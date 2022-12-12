@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fahrgemeinschaft", "Fahrgemeinschaft\Fahrgemeinschaft.csproj", "{5EC71C23-26BF-4765-940D-26D28C6862D3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B54DF43F-2F81-4D73-A586-A7D4D9690C8C} = {B54DF43F-2F81-4D73-A586-A7D4D9690C8C}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBaseWrapper", "..\..\GRUG_Absolventenverband\DataBaseWrapper\DataBaseWrapper.csproj", "{B54DF43F-2F81-4D73-A586-A7D4D9690C8C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5EC71C23-26BF-4765-940D-26D28C6862D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EC71C23-26BF-4765-940D-26D28C6862D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EC71C23-26BF-4765-940D-26D28C6862D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EC71C23-26BF-4765-940D-26D28C6862D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B54DF43F-2F81-4D73-A586-A7D4D9690C8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B54DF43F-2F81-4D73-A586-A7D4D9690C8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B54DF43F-2F81-4D73-A586-A7D4D9690C8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B54DF43F-2F81-4D73-A586-A7D4D9690C8C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6D0F8644-6510-45AA-8D87-2F051E30B8AA}
+	EndGlobalSection
+EndGlobal
