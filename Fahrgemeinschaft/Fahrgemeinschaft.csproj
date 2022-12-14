@@ -73,6 +73,7 @@
     <Content Include="Properties\logo_voecklabruck-300x121.png" />
     <Content Include="Web.config" />
     <Content Include="default.aspx" />
+    <Content Include="MitfahrerSeite.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database.cs" />
@@ -97,6 +98,13 @@
     </Compile>
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MitfahrerSeite.aspx.cs">
+      <DependentUpon>MitfahrerSeite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MitfahrerSeite.aspx.designer.cs">
+      <DependentUpon>MitfahrerSeite.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

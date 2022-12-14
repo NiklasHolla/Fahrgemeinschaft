@@ -120,6 +120,8 @@ namespace Fahrgemeinschaft
 
         }
 
+        
+
         public string getSalt()
         {
             var random = new RNGCryptoServiceProvider();
@@ -193,7 +195,7 @@ namespace Fahrgemeinschaft
                                      $"VALUES('{email}', '{password}','{salt} ',{telefonnummer}, '{rolle}', '{verifyCode}', 0)";
 
 
-
+                        lblInfo.Text = "You were sucesfully registrated, please checck your email and insert the sent Verify Code to authenticate your account";
 
                         ConfirmEmail(txtEMailCreate.Text, verifyCode.ToString());
 
@@ -230,17 +232,28 @@ namespace Fahrgemeinschaft
         }
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-           
+            
+
             OdbcConnection conn = new OdbcConnection(connStrg);
             DataBase db = new DataBase(connStrg);
+            
+
+
             string sqlCmd;
 
 
             sqlCmd = $"SELECT fahrgemeinschaft_user.Autentifiziert FROM fahrgemeinschaft_user WHERE fahrgemeinschaft_user.EMail LIKE '{txtEmailLogin.Text}';";
+            
+            
+            
             object result1 = (int)db.RunQueryScalar(sqlCmd);
             if ((int)result1 != 1)
             {
+<<<<<<< Updated upstream
                 lblInfo.Text = "Noch nicht authentifiziert";
+=======
+                lblInfo_Message.Text = "EMail nicht vorhanden oder nicht verifiziert!";
+>>>>>>> Stashed changes
             }
             else
             {
@@ -316,6 +329,9 @@ namespace Fahrgemeinschaft
             int countsymbol = 0;
             string Alphabet = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
+
+            
+
             if (!String.IsNullOrEmpty(psw) || !String.IsNullOrWhiteSpace(psw))
             {
                 args.IsValid = true;
@@ -359,13 +375,21 @@ namespace Fahrgemeinschaft
                     args.IsValid = false;
                     lblInfo.Text = "Passwort muss mind. 1 Zahl, 5 Buchstaben und ein Sonerzeichen beinhalten!";
                 }
+                /*
+            if (String.IsNullOrWhiteSpace(txtVerifyCode.Text) || String.IsNullOrWhiteSpace(txtPasswordLogin.Text) || String.IsNullOrWhiteSpace(txtEmailLogin.Text))
+            {
+                args.IsValid = true;
             }
+                */
+            
+            
+        }
 
         [Obsolete]
         private void ConfirmEmail(string empfaenger, string nachricht)
 
         {
-            StreamReader sr = new StreamReader(@"Z:\SWP 5.Klasse\codencoden.txt");
+            StreamReader sr = new StreamReader(@"Z:\SWP\5\GitHub Projekt\codencoden.txt");
             string passwort = sr.ReadLine();
             string server = "smtp.office365.com";
             int port = 587;
@@ -411,10 +435,11 @@ namespace Fahrgemeinschaft
 
         protected void btnVerify_Click(object sender, EventArgs e)
         {
+            
             int VerifyCodeInt = Convert.ToInt32(txtVerifyCode.Text);
             string email = txtEMailCreate.Text;
             string sqlCmdTwo = $"SELECT EMail, VerifyCode FROM fahrgemeinschaft_user WHERE VerifyCode = {VerifyCodeInt} AND Email LIKE '{email}'; ";
-
+            DataBase db = new DataBase(connStrg);
 
 
             string sqlCmdThree = $"UPDATE fahrgemeinschaft_user SET Autentifiziert = 1 WHERE EMail LIKE '{email}' AND VerifyCode = {VerifyCodeInt}; ";
@@ -425,9 +450,12 @@ namespace Fahrgemeinschaft
 
             OdbcCommand cmdThree = new OdbcCommand(sqlCmdThree, conn);
             conn.Open();
-            if (cmd.ExecuteScalar().ToString().Length > 0)
+            //cmd.ExecuteScalar().ToString().Length > 0
+            
+            if (Convert.ToInt32(db.RunNonQuery(sqlCmdTwo).ToString()) != -250)
             {
-                cmdThree.ExecuteNonQuery();
+                //cmdThree.ExecuteNonQuery();
+                db.RunNonQuery(sqlCmdThree);
                 lblInfo.Text = " Congrats!";
             }
             else

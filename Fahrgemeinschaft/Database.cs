@@ -81,7 +81,17 @@ namespace DataBaseWrapper
                 try
                 {
                     connection.Open();
+
+                    if(cmd.ExecuteScalar() == null)
+                    {
+                        return -273;
+                    }
+                    else
+                    {
+                        return cmd.ExecuteScalar();
+                    }
                    
+<<<<<<< Updated upstream
                     if(cmd.ExecuteScalar() == null)
                     {
                         return -273; //Dammit mein keinen fehler bei null bekommt
@@ -90,6 +100,8 @@ namespace DataBaseWrapper
                     {
                         return cmd.ExecuteScalar();
                     }
+=======
+>>>>>>> Stashed changes
                     
                 }
                 catch(Exception ex)
@@ -116,15 +128,21 @@ namespace DataBaseWrapper
         {
             // todo 
             int rtrn;
-            OdbcCommand cmd = new OdbcCommand(sqlCmd);
+            OdbcCommand cmd = new OdbcCommand(sqlCmd, connection);
 
             if (connection.State == ConnectionState.Closed)
             {
                 try
                 {
                     connection.Open();
-
-                    rtrn = cmd.ExecuteNonQuery();
+                    if(cmd.ExecuteNonQuery() == 0)
+                    {
+                        return -250;
+                    }else
+                    {
+                        rtrn = cmd.ExecuteNonQuery();
+                    }
+                    
                     return rtrn;
 
                 }
