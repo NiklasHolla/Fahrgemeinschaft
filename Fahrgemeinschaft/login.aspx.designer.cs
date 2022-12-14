@@ -105,15 +105,6 @@ namespace Fahrgemeinschaft
         protected global::System.Web.UI.WebControls.TextBox txtPasswordCreate;
 
         /// <summary>
-        /// rfvPasswort control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPasswort;
-
-        /// <summary>
         /// cv_Password control.
         /// </summary>
         /// <remarks>

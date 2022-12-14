@@ -82,7 +82,15 @@ namespace DataBaseWrapper
                 {
                     connection.Open();
                    
-                    return cmd.ExecuteScalar();
+                    if(cmd.ExecuteScalar() == null)
+                    {
+                        return -273; //Dammit mein keinen fehler bei null bekommt
+                    }
+                    else
+                    {
+                        return cmd.ExecuteScalar();
+                    }
+                    
                 }
                 catch(Exception ex)
                 {

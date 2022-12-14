@@ -57,7 +57,6 @@
             <br />
             Passwort:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="txtPasswordCreate" runat="server" TextMode="Password"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="rfvPasswort" runat="server" ControlToValidate="txtPasswordCreate" ErrorMessage="Password is empty" ForeColor="Red" EnableClientScript="False"></asp:RequiredFieldValidator>
             <asp:CustomValidator ID="cv_Password" runat="server" EnableClientScript="False" ErrorMessage="Wrong Format" OnServerValidate="cv_Password_ServerValidate"></asp:CustomValidator>
             <br />
             Telefonnummer:&nbsp;&nbsp;&nbsp;

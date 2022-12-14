@@ -13,7 +13,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Net.Mail;
 using System.Net;
-using System.Web.Mail;
 using MailMessage = System.Net.Mail.MailMessage;
 using System.IO;
 
@@ -235,11 +234,13 @@ namespace Fahrgemeinschaft
             OdbcConnection conn = new OdbcConnection(connStrg);
             DataBase db = new DataBase(connStrg);
             string sqlCmd;
+
+
             sqlCmd = $"SELECT fahrgemeinschaft_user.Autentifiziert FROM fahrgemeinschaft_user WHERE fahrgemeinschaft_user.EMail LIKE '{txtEmailLogin.Text}';";
             object result1 = (int)db.RunQueryScalar(sqlCmd);
             if ((int)result1 != 1)
             {
-                lblInfo.Text = "Not valid";
+                lblInfo.Text = "Noch nicht authentifiziert";
             }
             else
             {
